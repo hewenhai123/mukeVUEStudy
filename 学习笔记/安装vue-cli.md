@@ -1,15 +1,15 @@
 
 
 
-安装vue-cli步骤
+## 安装vue-cli步骤
 
-1. 全局安装vue-cli
+1.  全局安装vue-cli
    npm install -g vue-cli
 
-2.调用vue 初始化项目 选择模板
+2. 调用vue 初始化项目 选择模板
    vue init webpack my-pro-muke
 
-3.进入刚刚初始化的项目
+3. 进入刚刚初始化的项目
    cd my-pro-muke
 
 4. npm安装依赖包
