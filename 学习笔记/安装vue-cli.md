@@ -16,4 +16,6 @@
    npm install
 
 5. 运行开发环境
-   npm run dev
+   npm run dev 启动测试服务器
+   npm run build 生成上线目录（部署）
+   
