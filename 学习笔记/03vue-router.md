@@ -28,8 +28,57 @@
    `` Vue.use(VRouter)``
  
 
-** 注意:三个要素**
+** 注意:三个要素，关键点**
    
    1. 一定要有一份map，映射关系，什么样的地址跳转到什么样的页面上
-   2. 页面中的link
+   ```apple js
+   import VRouter from 'vue-router'
+   import Apple from './components/apple'
+   Vue.use(VRouter);
+   let router=new Vrouter({ //在这里设置路由map
+      routes:[ //注意这里不是routers
+          {
+              path:'/apple',
+              component:Apple  //这里也不是components
+          }
+      ]
+   });
+   
+   //根组件使用router
+   new Vue({
+    el:'#app',
+    router,
+    template:'<app/>',
+    components:{app}
+   })
+
+   ```
+
+   2. <router-view></router-view>
+   
+  `` 用来显示组件``
+   
+   3. 页面中的<router-linik>
+   
+   
+> 哈希
+
+   ```
+   http://localhost:8090/#/banana
+     中间的#号，是vue来处理html5路由的一个方式，没有使用html5 history的功能
+     在高级模式下，我们就可以讲当前的模式设置为history模式
+   ```
+   
+   ```apple js
+   let router=new VRouter({
+   mode:'history',
+   routes:[
+       ....
+   ]
+   })
+```
+   
+   
+   
+   
   
