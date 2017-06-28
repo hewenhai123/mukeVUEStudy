@@ -91,7 +91,10 @@
    * router-link 默认是a标签，如果需要将它改变，只需要使用tag属性指定标签名即可   
     
 ```
+
  <router-link  :to={path:'apple/red'} tag="li"> to apple</router-link>
+ 
+ 
 ```
 
 
@@ -104,13 +107,15 @@
      在高级模式下，我们就可以讲当前的模式设置为history模式
    ```
    
-   ```apple js
+   ``` js
+   
    let router=new VRouter({
    mode:'history',
    routes:[
       { ....}
-   ]
+      ]
    })
+   
 ```
    
    
