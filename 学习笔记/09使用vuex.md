@@ -23,3 +23,17 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 ```
+
+4. 实例化vuex
+ 
+ ```
+ let store=new Vuex.store({
+ 
+ 
+ })
+```
+
+
+
+
+
