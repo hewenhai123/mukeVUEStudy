@@ -31,7 +31,7 @@
 ** 注意:三个要素，关键点**
    
    1. 一定要有一份map，映射关系，什么样的地址跳转到什么样的页面上
-   ```apple js
+   ``` js
    import VRouter from 'vue-router'
    import Apple from './components/apple'
    Vue.use(VRouter);
@@ -53,10 +53,49 @@
    })
 
    ```
-
+   
+   
    2. <router-view></router-view>
    
-  `` 用来显示组件,渲染的位置``
+   
+   *  命名视图
+   
+        可以给<router-view name="appl"></router-view>  name属性，
+        实现多个router-view 根据不同的那么现实组件
+   
+   ``` js
+
+   <template>
+      <div id="app">
+          <router-view name="viewA"></router-view>
+          <router-view name="viewB"></router-view>
+      </div>
+   </template>
+     
+   <script>
+       import Vue from 'vue'
+       import VRouter from 'vue-router'
+       import applePage from './components/applePage'
+       import bananaPage from './components/bananaPage'
+       
+       Vue.use(VRouter)
+       let router=new VRouter({
+             mode:'hiustory',
+             routes:[
+               {
+                 path:'apple',
+                 component:{
+                     viewA:applePage,
+                     viewB:bananaPage
+                   }
+               }
+             ]
+      })
+   
+   </script>  
+
+  ```
+
    
    3. 页面中的<router-linik>跳转
    ```apple html5
