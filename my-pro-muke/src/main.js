@@ -14,6 +14,10 @@ let router=new VRouter({
   mode:'history',
   routes:[
     {
+      path:'/',
+      redirect:'/apple'
+    },
+    {
       path:'/apple',
       component:Apple,
       children:[
@@ -22,10 +26,6 @@ let router=new VRouter({
           component:redApple
         }
       ]
-    },
-    {
-      path:'/apple/:color',
-      component:Apple
     },
     {
       path:'/banana',
