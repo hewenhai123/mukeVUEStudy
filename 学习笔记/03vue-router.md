@@ -56,9 +56,21 @@
 
    2. <router-view></router-view>
    
-  `` 用来显示组件``
+  `` 用来显示组件,渲染的位置``
    
-   3. 页面中的<router-linik>
+   3. 页面中的<router-linik>跳转
+   ```apple html5
+   <template>
+      <div id="app">
+        <img src="./assets/logo.png">
+        <router-view></router-view>
+        <router-link :to="{path:'apple'}">to apple</router-link>
+        <router-link :to="{path:'banana'}">to banana</router-link>
+       </div>
+   </template>
+  
+```
+   
    
    
 > 哈希
@@ -73,7 +85,7 @@
    let router=new VRouter({
    mode:'history',
    routes:[
-       ....
+      { ....}
    ]
    })
 ```

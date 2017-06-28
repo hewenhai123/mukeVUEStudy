@@ -2,6 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
+    <button @click="getParams"> get params</button>
+
   </div>
 </template>
 
@@ -12,6 +14,11 @@ export default {
     return {
       msg: ' 我是apple组件'
     }
+  },
+  methods:{
+      getParams(){
+          console.log(this.$route.params)
+      }
   }
 }
 </script>

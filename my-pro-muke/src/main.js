@@ -17,13 +17,15 @@ let router=new VRouter({
       component:Apple
     },
     {
+      path:'/apple/:color',
+      component:Apple
+    },
+    {
       path:'/banana',
       component:Banana
     }
-
   ]
-
-})
+});
 // Vue.config.productionTip = false;
 /* eslint-disable no-new */
 new Vue({
