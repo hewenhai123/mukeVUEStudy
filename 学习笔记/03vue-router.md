@@ -66,13 +66,36 @@
         <router-view></router-view>
         <router-link :to="{path:'apple'}">to apple</router-link>
         <router-link :to="{path:'banana'}">to banana</router-link>
+        <router-link to="apple/red">to apple red </router-link> //如图a标签的href
+        <router-link :to="{path:'apple/red'}" tag=""></router-link>
        </div>
    </template>
   
 ```
+
+   4. 传递参数
    
+
+      <router-link :to="{path:'apple/red',param:{color:'yellow'}}"></router-link>
+ 
+     
+   5. 具名路由
    
+   * 具名路由需要在设定路由的时候给路由一个名字
+   ```
+      <router-link :to="{name:'applPage'}">to appPage</router-link>
+   ```
    
+   6. 修改默认的标签
+    
+   * router-link 默认是a标签，如果需要将它改变，只需要使用tag属性指定标签名即可   
+    
+```
+ <router-link  :to={path:'apple/red'} tag="li"> to apple</router-link>
+```
+
+
+
 > 哈希
 
    ```

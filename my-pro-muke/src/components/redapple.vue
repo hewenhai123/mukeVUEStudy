@@ -2,8 +2,8 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <h2>Essential Links</h2>
-    <button @click="getParams"> get params</button>
-   <router-view></router-view>
+    <!--<button @click="getParams"> get params</button>-->
+
   </div>
 </template>
 
@@ -12,13 +12,13 @@ export default {
   name: 'hello',
   data () {
     return {
-      msg: ' 我是apple组件'
+      msg: ' 我是apple的子组件'
     }
   },
   methods:{
-      getParams(){
-          console.log(this.$route.params)
-      }
+//      getParams(){
+//          console.log(this.$route.params)
+//      }
   }
 }
 </script>
