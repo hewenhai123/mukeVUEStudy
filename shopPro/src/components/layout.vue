@@ -120,6 +120,21 @@
   .nav-list li{
   float: left;
   }
+  .nav-pile{
+    padding:0 10px;
+  }
+.app-foot{
+  width:100%;
+  height: 80px;
+  line-height:80px;
+  text-align: center;
+  background: #e3e4e8;
+}
+.app-content{
+  width:1200px;
+  margin:0 auto;
+}
+
 
 
 </style>
