@@ -61,7 +61,7 @@ Vue.use(Vuex)
 
 * state： 数据中心
 * mutations:  控制数据，里面有的fn都有两个参数，state  、 price 获取的参数
-
+* actions: 执行在mutations之前
 
 
 
