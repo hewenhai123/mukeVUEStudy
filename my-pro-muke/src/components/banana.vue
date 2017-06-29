@@ -1,22 +1,32 @@
 <template>
-<div class="banana">
- <h1>
-   {{msg}}
- </h1>
-
-</div>
+  <div class="banana">
+    <h1>
+      {{msg}}
+    </h1>
+    <button @click="addFifteen">加 15</button>
+    <button @click="minusFifteen">减 15</button>
+  </div>
 
 </template>
 
 <script>
-export default{
-    name:'banana',
+  export default{
+    name: 'banana',
     data(){
-        return {
-            msg:"我是banana组件"
-        }
+      return {
+        msg: "我是banana组件",
+        price: 15
+      }
+    },
+    methods: {
+      addFifteen(){
+        this.$store.commit('increment', this.price)
+      },
+      minusFifteen(){
+        this.$store.commit('decrement', this.price)
+      }
     }
-}
+  }
 
 
 </script>
