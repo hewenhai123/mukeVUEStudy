@@ -28,8 +28,7 @@ Vue.use(Vuex)
  
  ```
  let store=new Vuex.store({
- 
- 
+
  })
 ```
 
