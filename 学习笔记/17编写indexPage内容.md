@@ -9,7 +9,7 @@
       <div class="index-left">
         <div class="index-left-block">
            <h2>全部产品</h2>
-           <div>
+          <!-- <div>
             <h3>{{productList.pc.title}}</h3>
             <ul>
              <li v-for="item in productList.pc.list">
@@ -17,7 +17,23 @@
              <span v-if="item.hot" class="hot-tag">Hot</span>
                </li>
             </ul>
-           </div>
+           </div>-->
+           
+          <!-- 代码改写，使用Vue内置的组件-->
+          
+          <template v-for="product in prodcutList">
+          <h3>{{product.title}}</h3>
+          <ul>
+            <li v-for="item in product">
+                 <a :href="item.url">{{item.name}}</a>
+                 <span v-if="item.hot" class="hot-tag">Hot</span>
+             </li>
+          </ul>
+          <div v-if="!product.last" class="hr"></div>
+          <!-- product.last是在数据中定义的，不是方法 -->
+         </template>
+          
+          
      
         </div>
         <div class="index-left-block lastest-news"></div>

@@ -3,26 +3,18 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
-        <div>
-          <h3>{{productList.pc.title}}</h3>
-          <ul>
-            <li v-for="item in productList.pc.list">
-              <a :href="item.url">{{item.name}}</a>
-              <span v-if="item.hot" class="hot-tag">Hot</span>
-            </li>
-          </ul>
-        </div>
-        <div class="hr"></div>
-        <div>
-          <h3>{{productList.app.title}}</h3>
-          <ul>
-            <li v-for="item in productList.app.list">
-              <a :href="item.url">{{item.name}}</a>
-              <span v-if="item.hot" class="hot-tag">hot</span>
-            </li>
-          </ul>
-        </div>
+       <template v-for="product in productList">
+           <h3>{{product.title}}444</h3>
+           <ul>
+             <li v-for="item in product.list">
+               <a :href="item.url">{{item.name}}</a>
+               <span v-if="item.hot" class="hot-tag">Hot</span>
+             </li>
+           </ul>
+         <div v-if="!product.last" class="hr"></div>
+       </template>
       </div>
+
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <div>
