@@ -18,6 +18,11 @@
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <div>
+          <ul>
+            <li v-for="item in newsList">
+              <a :href="item.url">{{item.title}}</a>
+            </li>
+          </ul>
 
         </div>
 
@@ -97,6 +102,25 @@
           }
 
         },
+        newsList: [
+        {
+          title: '数据统计',
+          url: 'http://starcraft.com'
+        },
+        {
+          title: '数据预测',
+          url: 'http://warcraft.com'
+        },
+        {
+          title: '流量分析',
+          url: 'http://overwatch.com',
+          hot: true
+        },
+        {
+          title: '广告发布',
+          url: 'http://hearstone.com'
+        }
+      ],
         boardList: [
           {
             title: '开放产品',
