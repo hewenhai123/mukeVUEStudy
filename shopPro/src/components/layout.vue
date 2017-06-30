@@ -1,34 +1,39 @@
 <!-- 这是我们设定好的一个布局-->
 
 <template>
-  <div id="layout">
+  <div >
     <div class="app-head">
       <div class="app-head-inner">
         <div class="app-head-logo">
           <img src="../assets/logo.png" alt="">
         </div>
         <div class="head-nav">
-            <ul class="nav-list">
-              <li>登录</li>
-              <li class="nav-pile">|</li>
-              <li>注册</li>
-              <li class="nav-pile">|</li>
-              <li>关于</li>
-            </ul>
+          <ul class="nav-list">
+            <li>登录</li>
+            <li class="nav-pile">|</li>
+            <li>注册</li>
+            <li class="nav-pile">|</li>
+            <li>关于</li>
+          </ul>
         </div>
       </div>
     </div>
-    <div class="app-content">appContent</div>
+    <div class="app-content">
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+    </div>
     <div class="app-foot">
-      © 2017 hewenhai
+      <div class="app-foot-inner">
+        © 2017 hewenhai
+      </div>
+
     </div>
   </div>
 </template>
 <script>
 
-  export default{
-
-  }
+  export default{}
 
 </script>
 <style>
@@ -57,84 +62,106 @@
     font: inherit;
     vertical-align: baseline;
   }
+
   /* HTML5 display-role reset for older browsers */
   article, aside, details, figcaption, figure,
   footer, header, hgroup, menu, nav, section {
     display: block;
   }
+
   body {
     line-height: 1;
   }
+
   ol, ul {
     list-style: none;
   }
+
   blockquote, q {
     quotes: none;
   }
+
   blockquote:before, blockquote:after,
   q:before, q:after {
     content: '';
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
   }
+
   a {
     color: inherit;
     text-decoration: none;
   }
+
   body {
     background: #f0f2f5;
-    font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","Microsoft YaHei UI","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei UI", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
     font-size: 14px;
     color: #444;
   }
 
-.app-head{
-  background:#363636;
-  height:90px;
-  line-height: 90px;
-  width: 100%;
-  color:#b2b2b2;
-}
-  .app-head-inner{
-    width: 1200px;
-    margin:0 auto;
+  .app-head {
+    background: #363636;
+    height: 90px;
+    line-height: 90px;
+    width: 100%;
+    color: #b2b2b2;
   }
-.app-head-logo{
-  float: left;
-  margin-top: 20px;
-}
-  .app-head-logo img{
+
+  .app-head-inner {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .app-head-logo {
+    float: left;
+    margin-top: 20px;
+  }
+
+  .app-head-logo img {
     width: 50px;
   }
-.head-nav{
-  float: right;
 
-}
-  .head-nav ul{
+  .head-nav {
+    float: right;
+
+  }
+
+  .head-nav ul {
     overflow: hidden;
 
   }
-  .nav-list li{
-  float: left;
-  }
-  .nav-pile{
-    padding:0 10px;
-  }
-.app-foot{
-  width:100%;
-  height: 80px;
-  line-height:80px;
-  text-align: center;
-  background: #e3e4e8;
-}
-.app-content{
-  width:1200px;
-  margin:0 auto;
-}
 
+  .nav-list li {
+    float: left;
+  }
+
+  .nav-pile {
+    padding: 0 10px;
+  }
+
+  .app-foot {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background: #e3e4e8;
+  }
+
+  .app-content {
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .app-foot-inner {
+    text-align: left;
+    width: 1200px;
+    margin: 0 auto;
+  }
 
 
 </style>
