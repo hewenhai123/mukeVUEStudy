@@ -76,20 +76,39 @@ Vue.use(VueResource)
    
    
 
-```js
+```
   export default {
     created:function() {  //当组件创建完成只会请求数据。
-      this.$http.get('getList').then(function(data) {
-        
+      this.$http.get('getList')
+      .then(function(rs) {
+        this.newsList=rs.data  //按照常理来说这里的this并不是我们想要的this,我们可以使用箭头函数来解决，代码见111-1
       },function(err) {
         
       })
     },
     data(){
-        
+        newsList:[] //newsList原本是空数组，当created组件创建完成后请求到ajax数据后赋值给newsList 
     }
     
   }
 
+```
+
+
+
+* 111-1
+  > 使用箭头函数来结局this问题
+```
+  export defautl{
+    created(){
+        this.$http.get('/api/getNewsList')
+        .then((rs)=>{
+            this.newsList=rs.data
+        },(er)=>{
+            console.log(er)
+        })
+    }
+  }
+ 
 ```
 

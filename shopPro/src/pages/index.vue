@@ -3,16 +3,16 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
-       <template v-for="product in productList">
-           <h3>{{product.title}}444</h3>
-           <ul>
-             <li v-for="item in product.list">
-               <a :href="item.url">{{item.name}}</a>
-               <span v-if="item.hot" class="hot-tag">Hot</span>
-             </li>
-           </ul>
-         <div v-if="!product.last" class="hr"></div>
-       </template>
+        <template v-for="product in productList">
+          <h3>{{product.title}}444</h3>
+          <ul>
+            <li v-for="item in product.list">
+              <a :href="item.url">{{item.name}}</a>
+              <span v-if="item.hot" class="hot-tag">Hot</span>
+            </li>
+          </ul>
+          <div v-if="!product.last" class="hr"></div>
+        </template>
       </div>
 
       <div class="index-left-block lastest-news">
@@ -20,7 +20,7 @@
         <div>
           <ul>
             <li v-for="item in newsList">
-              <a :href="item.url">{{item.title}}</a>
+              <a :href="item.url" class="list-item">{{item.title}}</a>
             </li>
           </ul>
 
@@ -51,18 +51,16 @@
 <script>
 
   export default{
-      created(){
-       this.$http.get("getList").then(function (data) {
-         console.log(data)
-       },function (err) {
-         console.log(err)
-       });
-       this.$http.post('getList',{'data':123}).then(function (successData) {
-          console.log(successData)
-       },function (err) {
-         console.log(err)
-       })
-      },
+    created(){
+      this.$http.get('/api/getNewsList')
+        .then((rs) => {
+          this.newsList = rs.data
+        }, (er) => {
+          console.log(er)
+        })
+    }
+
+    ,
     name: 'indexPage',
     data(){
       return {
@@ -114,25 +112,7 @@
           }
 
         },
-        newsList: [
-        {
-          title: '数据统计',
-          url: 'http://starcraft.com'
-        },
-        {
-          title: '数据预测',
-          url: 'http://warcraft.com'
-        },
-        {
-          title: '流量分析',
-          url: 'http://overwatch.com',
-          hot: true
-        },
-        {
-          title: '广告发布',
-          url: 'http://hearstone.com'
-        }
-      ],
+        newsList: [],
         boardList: [
           {
             title: '开放产品',
@@ -285,12 +265,23 @@
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
+
   }
 
   .button:hover {
     background: #42916a;
+  }
+
+  .lastest-news {
 
   }
 
+  .list-item {
+    display: inline-block;
+    width: 230px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
 </style>
