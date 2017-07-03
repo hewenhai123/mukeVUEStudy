@@ -51,6 +51,18 @@
 <script>
 
   export default{
+      created(){
+       this.$http.get("getList").then(function (data) {
+         console.log(data)
+       },function (err) {
+         console.log(err)
+       });
+       this.$http.post('getList',{'data':123}).then(function (successData) {
+          console.log(successData)
+       },function (err) {
+         console.log(err)
+       })
+      },
     name: 'indexPage',
     data(){
       return {

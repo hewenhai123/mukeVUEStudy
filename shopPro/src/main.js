@@ -2,9 +2,11 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from "vue";
 import VRouter from "vue-router";
+import VueResource from 'vue-resource'
 import Layout from "./components/layout";
 import IndexPage from './pages/index'
 Vue.use(VRouter)
+Vue.use(VueResource)
 let router = new VRouter({
   mode: 'history',
   routes: [

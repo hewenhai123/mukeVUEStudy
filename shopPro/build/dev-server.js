@@ -58,6 +58,27 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 
+
+
+
+//json-server
+
+
+const jsonServer = require('json-server')
+const jsserver = jsonServer.create()
+const jsrouter = jsonServer.router('db.json')
+const jsmiddlewares = jsonServer.defaults()
+
+jsserver.use(jsmiddlewares)
+jsserver.use('/api',jsrouter)
+jsserver.listen(port+1, () => {
+  console.log('JSON Server is running')
+})
+
+
+
+
+
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
