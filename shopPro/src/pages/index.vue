@@ -20,7 +20,7 @@
         <div>
           <ul>
             <li v-for="item in newsList">
-              <a :href="item.url">{{item.title}}</a>
+              <a :href="item.url" class="item-list">{{item.title}}</a>
             </li>
           </ul>
 
@@ -51,18 +51,19 @@
 <script>
 
   export default{
-      created(){
-       this.$http.get("getList").then(function (data) {
-         console.log(data)
-       },function (err) {
-         console.log(err)
-       });
-       this.$http.post('getList',{'data':123}).then(function (successData) {
-          console.log(successData)
-       },function (err) {
-         console.log(err)
-       })
-      },
+     created(){
+       this.$http.get('/api/getNewsList').then(
+         (rs)=>{
+             this.newsList=rs.data
+         },
+         (er)=>{
+             console.log(er)
+         }
+
+       )
+
+
+     },
     name: 'indexPage',
     data(){
       return {
@@ -114,25 +115,7 @@
           }
 
         },
-        newsList: [
-        {
-          title: '数据统计',
-          url: 'http://starcraft.com'
-        },
-        {
-          title: '数据预测',
-          url: 'http://warcraft.com'
-        },
-        {
-          title: '流量分析',
-          url: 'http://overwatch.com',
-          hot: true
-        },
-        {
-          title: '广告发布',
-          url: 'http://hearstone.com'
-        }
-      ],
+        newsList: [ ],
         boardList: [
           {
             title: '开放产品',
@@ -291,6 +274,12 @@
     background: #42916a;
 
   }
-
+.item-list{
+  display:inline-block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 </style>
