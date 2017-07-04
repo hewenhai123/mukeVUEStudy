@@ -4,7 +4,7 @@
       <div class="index-left-block">
         <h2>全部产品</h2>
         <template v-for="product in productList">
-          <h3>{{product.title}}444</h3>
+          <h3>{{product.title}}</h3>
           <ul>
             <li v-for="item in product.list">
               <a :href="item.url">{{item.name}}</a>
@@ -20,7 +20,7 @@
         <div>
           <ul>
             <li v-for="item in newsList">
-              <a :href="item.url" class="list-item">{{item.title}}</a>
+              <a :href="item.url" class="item-list">{{item.title}}</a>
             </li>
           </ul>
 
@@ -265,7 +265,6 @@
     display: inline-block;
     padding: 10px 20px;
     cursor: pointer;
-
   }
 
   .button:hover {
@@ -275,13 +274,12 @@
   .lastest-news {
 
   }
-
-  .list-item {
-    display: inline-block;
-    width: 230px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.item-list{
+  display:inline-block;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 </style>
