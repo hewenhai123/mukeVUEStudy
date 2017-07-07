@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="index-right">
-      <div>轮播图</div>
+     <slide-show></slide-show>
 
       <div class="index-board-item" v-for="(item,index) in boardList"
            :class="[{'line-last':index%2!==0},'index-board-'+item.id]">
@@ -49,8 +49,12 @@
 </template>
 
 <script>
+  import slideShow from '../components/slideShow'
 
   export default{
+      components:{
+          slideShow
+      },
     created(){
       this.$http.get('/api/getNewsList')
         .then((rs) => {
