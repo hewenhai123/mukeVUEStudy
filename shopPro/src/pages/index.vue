@@ -30,7 +30,7 @@
       </div>
     </div>
     <div class="index-right">
-     <slide-show></slide-show>
+      <slideShow :slides="slides"></slideShow>
 
       <div class="index-board-item" v-for="(item,index) in boardList"
            :class="[{'line-last':index%2!==0},'index-board-'+item.id]">
@@ -52,9 +52,9 @@
   import slideShow from '../components/slideShow'
 
   export default{
-      components:{
-          slideShow
-      },
+    components: {
+      slideShow
+    },
     created(){
       this.$http.get('/api/getNewsList')
         .then((rs) => {
@@ -147,6 +147,14 @@
             saleout: false
           }
         ],
+        invTime: 2000,
+        slides: [
+          {
+            src: "ddd0",
+            title: "xxx1",
+            href: "detail/count"
+          }
+        ]
       }
     }
   }
@@ -278,12 +286,13 @@
   .lastest-news {
 
   }
-.item-list{
-  display:inline-block;
-  width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+
+  .item-list {
+    display: inline-block;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 
 </style>
