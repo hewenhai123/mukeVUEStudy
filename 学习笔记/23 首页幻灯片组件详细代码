@@ -1,0 +1,225 @@
+## 幻灯片详细代码
+
+> idnex.vue
+
+```vue
+<template>
+   <div class="left"> 
+    ...
+   </div>
+   <div class="right">
+      <slide-show :slides="slides"></slide-show>
+   </div>
+</template>
+<script >
+
+import slideShow from '../components/slideShow'
+export default{
+    components:{
+      slideShow  
+    },
+    data(){
+        return{
+            slides:[
+                {
+                    title:'xxx1',
+                    href:"www.baidu.com",
+                    src:require('../assets/slidesShow/pic1.jpg')
+                },
+                .....
+            ]
+        }
+    }
+}
+
+</script>
+<style scoped>
+............
+</style>
+
+```
+
+> slideShow.vue
+```vue
+<template>
+ <div class="slide-show">
+    <div class="slide-img" >
+      <a :href="slides[nowIndex].href">
+        <img :src="slides[nowIndex].src" alt="">
+      </a>
+     </div>
+    <h2>{{slides[nowIndex].title}}</h2>
+    <ul class="slide-pages">
+       <li @click="tabClick('down')">&lt;</li>
+       <li v-for="(item,index) in slides" @click="goto(index)">
+          <a>{{index+1}}</a>
+       </li>
+       <li @click="tabClick('up')">&gt;</li>
+    </ul>
+ </div>
+     
+  
+</template>
+<script >
+
+export default {
+    prpos:{
+      slides:{
+          type:Array,
+          default:[]
+      }  
+    },
+    data(){
+        return{
+            x:1,
+            nowIndex:0,
+        }
+    },
+    methods:{
+        goto(index){
+            this.nowIndex=index
+        },
+        tabClick(sta){
+            if(sta==="up"){
+                this.nowIndex==this.slides.length-1?this.nowIndex=0:this.nowIndex++
+            }
+            if(sta==="down"){
+                this.nowIndex===0?this.nowIndex=this.slides.length-1:this.nowIndex--
+            }
+        }
+    }
+ 
+}
+
+</script>
+<style>
+
+.slide-show{
+  position:relative;
+  margin: 15px 15px 15px 0;
+  width: 900px;
+  height: 500px;
+  overflow: hidden;
+}
+.slide-show h2{
+  positoin:absolute;
+  width: 100%;
+  height:100%;
+  color:#fff;
+  backgrund:#000;
+  opacity: .5;
+  bottom:0;
+  height:30px;
+  text-align: left;
+  padding-left: 15px;
+}
+
+.slide-img{
+  width:100%;
+}
+.slide-img img{
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+.slide-pages{
+ position: absolute;
+ bottom: 10px;
+ right: 15px;
+}
+.slide-pages li{
+ display: inline-block;
+ padding: 0 10px;
+ cursor: pointer;
+ color: #ffffff;
+}
+
+.slide-page li .on{
+   text-decoration: underline; 
+}
+
+</style>
+```
+
+> 使用computed计算属性来优化代码
+
+```vue
+<template>
+   <div class="slide-show" @mouseover="clearInv" @mouseout="runInv">
+      <div class="slide-img" v-for="(item,index) in slides">
+         <a :href="item.href">
+           <img :src="item.src" alt="">
+         </a>
+      </div>
+      <h2>{{slides.title}}</h2>
+      <ul>
+      <li @click="goto(prevIndex)">&lt;</li>
+       <li v-for="(item,index) in slides" @click="goto(index)">
+             <a :class="index==nowIndex">{{index+1}}</a>
+        </li>
+      <li @click="goto(nextIndex)">&gt;</li>
+      </ul>
+   </div>
+</template>
+<script >
+  export default{
+      props:{
+         slides:{
+             type:Array,
+             default:[]
+         },
+         inv:{
+             type:Number,
+             default:[],
+         }
+      },
+      data(){
+          return{
+              nowIndex:0
+          }
+      },
+      computed:{
+        prevIndex(){
+            if(this.nowIndex==0){
+                return this.nowIndex.length-1;
+            }else{
+                return this.nowIndex-1;
+            }       
+        },
+        nextIndex(){
+            if(this.nowIndex==this.slides.length-1){
+                  return 0
+            }else{
+                return this.nowIndex+1;
+            }
+        }
+      },
+      methods:{
+          goto(index){
+              this.nowIndex=index;
+          },
+          runInv(){
+              this.invId=setInterval(()=>{
+                  this.goto(nextIndex)
+              },this.inv)
+          },
+          clearInv(){
+              window.clearInterval(this.invId)
+          }
+      },
+      mounted(){
+          this.runInv()
+      }
+      
+  }
+
+</script>
+
+```
+
+
+
+
+
+
+

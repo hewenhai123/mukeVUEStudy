@@ -14,7 +14,6 @@
           <div v-if="!product.last" class="hr"></div>
         </template>
       </div>
-
       <div class="index-left-block lastest-news">
         <h2>最新消息</h2>
         <div>
@@ -23,14 +22,11 @@
               <a :href="item.url" class="item-list">{{item.title}}</a>
             </li>
           </ul>
-
         </div>
-
-
       </div>
     </div>
     <div class="index-right">
-      <slideShow :slides="slides"></slideShow>
+      <slide-show :slides="slides" :inv="invTime"></slide-show>
 
       <div class="index-board-item" v-for="(item,index) in boardList"
            :class="[{'line-last':index%2!==0},'index-board-'+item.id]">
@@ -49,8 +45,8 @@
 </template>
 
 <script>
-  import slideShow from '../components/slideShow'
 
+  import slideShow from '../components/slideShow'
   export default{
     components: {
       slideShow
@@ -150,10 +146,26 @@
         invTime: 2000,
         slides: [
           {
-            src: "ddd0",
-            title: "xxx1",
-            href: "detail/count"
+            src: require('../assets/slideShow/pic1.jpg'),
+            title: 'pic1',
+            href: 'detail/analysis'
+          },
+          {
+            src: require('../assets/slideShow/pic2.jpg'),
+            title: 'pic2',
+            href: 'detail/count'
+          },
+          {
+            src: require('../assets/slideShow/pic3.jpg'),
+            title: 'pic3',
+            href: 'http://xxx.xxx.com'
+          },
+          {
+            src: require('../assets/slideShow/pic4.jpg'),
+            title: 'pic4',
+            href: 'detail/forecast'
           }
+
         ]
       }
     }

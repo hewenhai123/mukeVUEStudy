@@ -3,7 +3,7 @@
     <div class="index-left">
       <div class="index-left-block">
         <h2>全部产品</h2>
-        
+
         <template v-for="product in productList">
           <h3>{{ product.title}}</h3>
           <ul>
@@ -36,7 +36,7 @@
             <p>{{ item.description }}</p>
             <div class="index-board-button">
               <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
