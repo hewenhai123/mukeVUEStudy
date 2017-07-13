@@ -2,7 +2,7 @@
   <div class="slide-show" @mouseover="clearIv" @mouseout="runIv">
     <div class="slide-img">
       <a :href="slides[nowIndex].href">
-        <transition >
+        <transition name="slide-trans">
           <!--name="slide-trans"-->
            <img v-if="isShow" :src="slides[nowIndex].src" alt="">
         </transition>
@@ -60,8 +60,9 @@
 //        this.nowIndex = index;
         this.isShow=false
         setTimeout(()=>{
-            this.isShow=true
-          this.nowIndex=index
+            this.isShow=true;
+          this.nowIndex=index;
+          this.$emit('onchange',index)
         })
       },
       runIv(){
