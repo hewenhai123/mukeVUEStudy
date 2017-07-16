@@ -29,11 +29,23 @@
       </div>
 
     </div>
+    <myDialog></myDialog>
   </div>
 </template>
 <script>
+import myDialog from  './myDialog'
+  export default{
+    components:{
+       myDialog
+    },
 
-  export default{}
+      data(){
+          return{
+              x:1
+          }
+      }
+
+  }
 
 </script>
 <style>
