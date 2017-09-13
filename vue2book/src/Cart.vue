@@ -1,8 +1,16 @@
 <!--Cart.vue-->
 <template>
-  <div>购物车</div>
+  <div>
+    <i class="icon ion-star"></i>
+
+  </div>
 </template>
-<style>
+<style >
+
+  i{
+   font-size: 40px;
+
+  }
 
 
 </style>
