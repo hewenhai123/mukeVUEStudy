@@ -1,13 +1,9 @@
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router/router'
 
-
-Vue.config.productionTip=false
-
-require('./assets/font/css/ionicons.css')
+require('./assets/font/css/ionicons.min.css')
 require('./assets/js/index.js')
-
 new Vue({
   el:'#app',
   router,

@@ -1,7 +1,10 @@
-<!--Me.vue-->
-
 <template>
-  <div>我</div>
+  <div>
+    详情页
+
+  </div>
+
+
 </template>
 
 <style>
@@ -10,7 +13,9 @@
 
 <script>
   export default{
-
-
+//      data(){
+//
+//      }
   }
+
 </script>
