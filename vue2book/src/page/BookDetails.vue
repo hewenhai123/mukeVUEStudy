@@ -2,6 +2,7 @@
   <div>
     详情页
 
+    <div>{{idInfo}}</div>
   </div>
 
 
@@ -13,9 +14,20 @@
 
 <script>
   export default{
-//      data(){
-//
-//      }
+    data(){
+      return {
+        idInfo: ''
+      }
+    },
+    beforeMount(){
+      const routerId = this.$router.params.id;
+      this.idInfo = routerId;
+      console.log(routerId)
+
+    }
+
+
   }
+
 
 </script>

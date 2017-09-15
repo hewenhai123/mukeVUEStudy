@@ -2,7 +2,7 @@
 
 <template>
   <div>我
-   <router-link to="/books">
+   <router-link :to="{name:'BookDetail',params:{id:1}}">
      连接
    </router-link>
   </div>
