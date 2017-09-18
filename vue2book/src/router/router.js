@@ -13,6 +13,7 @@ Vue.use(VueRouter)
 export default new VueRouter({
   mode:'history',
   base:__dirname,
+  linkActiveClass:'active',
   routes:[
     {name:'Main',
       path:'/',

@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <!--<img src="./assets/logo.png">-->
-
+    <transition name="slide-fade">
     <router-view></router-view>
+    </transition>
   </div>
 </template>
 
@@ -96,7 +97,7 @@
   }
 
   .tab{
-    position: absolute;
+    position: fixed;
     bottom: 0px;
     width: 100%;
     background: #ffffff;
@@ -111,5 +112,24 @@
   }
   .tab ul li i{
     font-size: 2rem;
+  }
+
+
+
+  .slide-fade-enter-active {
+    transition: all 0.3s ease;
+  }
+
+  .slide-fade-leave-active {
+    transition: all 0.3s ease cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  }
+
+  .slide-fade-enter, .slide-fade-leave-active {
+    transform: translateX(-430px);
+    opacity: 0;
+  }
+
+  .active{
+    color: #cccccc;
   }
 </style>
